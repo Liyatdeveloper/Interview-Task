@@ -332,3 +332,4 @@ def admin_delivered_request(request):
     ii = request.GET['id']
     var = order_item_tb.objects.all().filter(id=ii, payment_status='paid').update(packing_status='delivered')
     return HttpResponseRedirect('/admin_orderlist/')
+	
