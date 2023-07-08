@@ -1,0 +1,51 @@
+{% extends 'Admin/admin_home.html ' %}
+{% block content %}
+
+
+<!-- <div class="banner_bottom_agile_info">
+	<div class="container"> -->
+	   <div class="agile-contact-grids">
+			<div class="agile-contact">
+			<div class="col-md-6 contact-form">
+				<h4 class="white-w3ls"> Add <span>Product </span></h4>
+				<form action="/admin_edit_product/" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input type="hidden" name="pid" value="{{pid}}">
+                        {% for x in var %}
+                        <div class="styled-input">
+                            <input type="text" name="name" placeholder="Product Name" required="" value="{{x.name}}">
+                             <label>Product Name:</label>
+                            <span></span>
+                        </div>
+                        <br>
+                        <div class="styled-input">
+                            <input class="text" type="text" name="qty" placeholder="Quantity" required="" value="{{x.qty}}">
+                             <label>Quantity:</label>
+                            <span></span>
+                        </div>
+                        <br>
+                        <div class="styled-input">
+                            <input class="text" type="text" name="price" placeholder="Price"  value="{{x.price}}">
+                             <label>Price:</label>
+                            <span></span>
+                        </div>
+                        
+                        <div class="styled-input">
+                            <input type="text" placeholder="Discription" name="details" value="{{x.details}}">
+                             <label>Discription:</label>
+                            <span></span>
+                            
+                        </div>
+                        {% endfor %}
+                        <input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+			</div>
+       <!-- </div>
+	</div> -->
+
+	
+
+{% endblock %}

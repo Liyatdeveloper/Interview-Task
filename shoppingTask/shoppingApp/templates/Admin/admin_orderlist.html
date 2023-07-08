@@ -1,0 +1,187 @@
+{% extends 'Admin/admin_home.html' %}
+{% block content %}
+
+
+<br>
+<div class="container" >
+<h2>Customer Pending Orders</h2><br>
+<table class="table" border="1">
+    <tr>
+        <th>Sl.No.</th>
+        <th>Date</th>
+        <th>User Details</th>
+        <th>Product Details</th>
+        <th>Total Amount</th>
+        <th>Payment Status</th>
+        <th>Packing Sattus</th>
+        <th></th>
+        <th></th>
+       
+    </tr>
+    {% for x in var %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{x.date}}</td>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}</td>
+        <td><img src="{{x.product_id.img.url}}" width="50px" height="50px"><br>{{x.product_id.name}}<br>{{x.product_id.qty}}-{{x.product_id.mesure}}
+        <br>{{x.product_id.price}}<br>Total Quantity:{{x.cart_id.qty}}</td>
+        <!-- <td></td>   -->
+        <td>{{x.cart_id.total_price}}</td>  
+        <td>{{x.payment_status}}</td>
+        <td>{{x.packing_status}}</td> 
+        <td><a href="/admin_processing_request/?id={{x.id}}" class="btn btn-success">Processing</a></td>
+        <td><a href="/admin_reject_request/?id={{x.id}}" class="btn btn-danger">Reject</a></td>
+
+        
+
+        
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+<br><br>
+<h2>Processing Works</h2><br>
+<table class="table" border="1">
+    <tr>
+        <th>Sl.No.</th>
+        <th>Date</th>
+        <th>User Details</th>
+        <th>Product Details</th>
+        <!-- <th>Quantity</th>  -->
+        <th>Total Amount</th>
+        <th>Payment Status</th>
+        <th>Packing Sattus</th>
+        <th></th>
+    </tr>
+    {% for x in var2 %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{x.date}}</td>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}</td>
+        <td><img src="{{x.product_id.img.url}}" width="50px" height="50px"><br>{{x.product_id.name}}<br>{{x.product_id.qty}}-{{x.product_id.mesure}}
+        <br>{{x.product_id.price}}<br>Total Quantity:{{x.cart_id.qty}}</td>
+        <!-- <td></td>   -->
+        <td>{{x.cart_id.total_price}}</td>  
+        <td>{{x.payment_status}}</td>
+        <td>{{x.packing_status}}</td> 
+        <td><a href="/admin_shipped_request/?id={{x.id}}" class="btn btn-success">Shipped</a></td> 
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+
+<br><br>
+<h2>Shipped Works</h2><br>
+<table class="table" border="1">
+    <tr>
+        <th>Sl.No.</th>
+        <th>Date</th>
+        <th>User Details</th>
+        <th>Product Details</th>
+        <!-- <th>Quantity</th>  -->
+        <th>Total Amount</th>
+        <th>Payment Status</th>
+        <th>Packing Sattus</th>
+        <th></th>
+    </tr>
+    {% for x in var5 %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{x.date}}</td>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}</td>
+        <td><img src="{{x.product_id.img.url}}" width="50px" height="50px"><br>{{x.product_id.name}}<br>{{x.product_id.qty}}-{{x.product_id.mesure}}
+        <br>{{x.product_id.price}}<br>Total Quantity:{{x.cart_id.qty}}</td>
+        <!-- <td></td>   -->
+        <td>{{x.cart_id.total_price}}</td>  
+        <td>{{x.payment_status}}</td>
+        <td>{{x.packing_status}}</td> 
+        <td><a href="/admin_delivered_request/?id={{x.id}}" class="btn btn-success">Delivered</a></td>
+        
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+
+
+
+<br><br>
+<h2>Completed Works</h2><br>
+<table class="table" border="1">
+    <tr>
+        <th>Sl.No.</th>
+        <th>Date</th>
+        <th>User Details</th>
+        <th>Product Details</th>
+        <th>Total Amount</th>
+        <th>Payment Status</th>
+        <th>Packing Sattus</th>  
+    </tr>
+    {% for x in var3 %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{x.date}}</td>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}</td>
+        <td><img src="{{x.product_id.img.url}}" width="50px" height="50px"><br>{{x.product_id.name}}<br>{{x.product_id.qty}}-{{x.product_id.mesure}}
+        <br>{{x.product_id.price}}<br>Total Quantity:{{x.cart_id.qty}}</td>
+        <td>{{x.cart_id.total_price}}</td>  
+        <td>{{x.payment_status}}</td>
+        <td>{{x.packing_status}}</td>   
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+<br><br>
+<h2>Rejected Orders</h2><br>
+<table class="table" border="1">
+    <tr>
+        <th>Sl.No.</th>
+        <th>Date</th>
+        <th>User Details</th>
+        <th>Product Details</th>
+        <th>Total Amount</th>
+        <th>Payment Status</th>
+        <th>Packing Sattus</th>
+        
+        
+       
+    </tr>
+    {% for x in var4 %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{x.date}}</td>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}</td>
+        <td><img src="{{x.product_id.img.url}}" width="50px" height="50px"><br>{{x.product_id.name}}<br>{{x.product_id.qty}}-{{x.product_id.mesure}}
+        <br>{{x.product_id.price}}<br>Total Quantity:{{x.cart_id.qty}}</td>
+        <td>{{x.cart_id.total_price}}</td>  
+        <td>{{x.payment_status}}</td>
+        <td>{{x.packing_status}}</td> 
+        
+        
+
+        
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+</div>
+
+
+<style>
+    th{
+        background-color: black;
+        color: white !important;
+
+    }
+</style>
+
+{% endblock %}

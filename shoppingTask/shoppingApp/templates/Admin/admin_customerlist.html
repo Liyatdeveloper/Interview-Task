@@ -1,0 +1,34 @@
+{% extends 'Admin/admin_home.html ' %}
+{% block content %}
+
+
+<div class="container" >
+<h2>Customer List</h2>
+<table class="table" border="1">
+    <tr>
+        
+        <th>Name</th> 
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+    </tr>
+    {% for x in var %}
+    
+    <tr>
+        <td>{{x.name}}</td>  
+        <td>{{x.email}}</td>  
+        <td>{{x.phone}}</td>
+        <td>{{x.address}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+<style type="text/css">
+    th{
+        background-color: black;
+        color: white !important;
+    }
+</style>
+
+{% endblock %}

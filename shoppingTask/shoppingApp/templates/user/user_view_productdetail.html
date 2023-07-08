@@ -1,0 +1,41 @@
+{% extends 'user/user_home.html' %}
+{% block content %}
+
+
+<br>
+<div class="container" >
+<a href="/user_address/" style="text-align: right;text-decoration: underline;">Change Address? Click here</a>
+<center>
+    <h2>Product Details</h2><br>
+
+      {% if products %}
+
+    {% for x in products %}
+    <img src="{{x.img}}" width="100px" height="100px" >
+    <p>{{x.name}}<br>{{x.qty}}<br>Rs:{{x.price}}<br>{{x.details}}</p>
+   
+    <br>
+
+    {{ message.error }}
+    <form action="/add_to_cart/" method="get">
+        {% csrf_token %}
+        <input type="hidden" name="ii" value="{{ii}}">
+        <input type="number" name="number" value="1" required  id="number">
+
+        <a onclick = "this.href='/add_to_cart/?id={{x.id}}&number=' + document.getElementById('number').value"><button type="button" class="btn btn-success btn-osx btn-lg">
+            𝘼𝙙𝙙 𝙏𝙤 𝘾𝙖𝙧𝙩</button></a>
+       
+   </form>
+  {% endfor %}
+   {% else %}
+   {{ error }}
+   <br>
+   <a href="/productlist/" class="btn btn-primary">Back</a>
+   <br>
+   {% endif %}
+</center>
+</div>
+
+
+
+{% endblock %}
